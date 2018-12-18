@@ -1,0 +1,286 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>极验demo</title>
+    <style>
+        body {
+            color: #666;
+            margin: 50px 0;
+            text-align: center;
+            font-family: "PingFangSC-Regular", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
+        }
+
+        .inp {
+            color: #666;
+            border: none;
+            border-bottom: 1px solid #cccccc;
+            border-radius: 10px;
+            padding: 0 10px;
+            width: 300px;
+            height: 40px;
+            font-size: 18px;
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        .btn {
+            display: inline-block;
+            box-sizing: border-box;
+            border: 1px solid #cccccc;
+            border-radius: 2px;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+            background: white linear-gradient(180deg, #7696c0 0%, #1f8be2 100%);
+        }
+
+        .btn:hover {
+            background: white linear-gradient(0deg, #7696c0 0%, #1f8be2 100%)
+        }
+
+        #captcha {
+            width: 300px;
+            display: inline-block;
+        }
+
+        label {
+            display: inline-block;
+            width: 80px;
+            text-align: right;
+        }
+
+        #text {
+            height: 42px;
+            width: 298px;
+            text-align: center;
+            border-radius: 2px;
+            background-color: #F3F3F3;
+            color: #BBBBBB;
+            font-size: 14px;
+            letter-spacing: 0.1px;
+            line-height: 42px;
+        }
+
+        #wait {
+            display: none;
+            height: 42px;
+            width: 298px;
+            text-align: center;
+            border-radius: 2px;
+            background-color: #F3F3F3;
+        }
+
+        .loading {
+            margin: auto;
+            width: 70px;
+            height: 20px;
+        }
+
+        .loading-dot {
+            float: left;
+            width: 8px;
+            height: 8px;
+            margin: 18px 4px;
+            background: #ccc;
+
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+
+            opacity: 0;
+
+            -webkit-box-shadow: 0 0 2px black;
+            -moz-box-shadow: 0 0 2px black;
+            -ms-box-shadow: 0 0 2px black;
+            -o-box-shadow: 0 0 2px black;
+            box-shadow: 0 0 2px black;
+
+            -webkit-animation: loadingFade 1s infinite;
+            -moz-animation: loadingFade 1s infinite;
+            animation: loadingFade 1s infinite;
+        }
+
+        .loading-dot:nth-child(1) {
+            -webkit-animation-delay: 0s;
+            -moz-animation-delay: 0s;
+            animation-delay: 0s;
+        }
+
+        .loading-dot:nth-child(2) {
+            -webkit-animation-delay: 0.1s;
+            -moz-animation-delay: 0.1s;
+            animation-delay: 0.1s;
+        }
+
+        .loading-dot:nth-child(3) {
+            -webkit-animation-delay: 0.2s;
+            -moz-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+        }
+
+        .loading-dot:nth-child(4) {
+            -webkit-animation-delay: 0.3s;
+            -moz-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+        }
+
+        @-webkit-keyframes loadingFade {
+            0% { opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+
+        @-moz-keyframes loadingFade {
+            0% { opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes loadingFade {
+            0% { opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+        #form {
+            padding: 50px 0 300px;
+            width: 900px;
+            margin: 0 auto;
+            border: 1px solid gray;
+            background-color: rgb(25, 187, 199,.5);
+            background-image: url('./yong_bijiben_de_qingnian-003.jpg');
+            background-size: cover;
+            transition: all .3s; 
+        }
+        #form:hover {
+            -moz-box-shadow: 0 0 37px #333333;
+            -webkit-box-shadow: 0 0 37px #333333;
+            box-shadow: 0 0 37px #333333;
+        }
+        span {
+            line-height: 48px;
+            vertical-align: top;
+        }
+        h2 {
+            margin-bottom: 70px;
+        }
+    </style>
+</head>
+    <body>
+    <h1>滑动模式-bind</h1>
+    <form id="form">
+        <h2>登&emsp;&emsp;录</h2>
+        <div>
+            <label for="username">用户名：</label>
+            <input class="inp" id="username" type="text" value="shark">
+        </div>
+        <br>
+        <div>
+            <label for="password">密码：</label>
+            <input class="inp" id="password" type="password" value="123456">
+        </div>
+        <br>
+        <!-- <div>
+            <label>完成验证：</label>
+            <div id="captcha">
+                <div id="text">
+                    行为验证™ 安全组件加载中
+                </div>
+                <div id="wait" class="show">
+                    <div class="loading">
+                        <div class="loading-dot"></div>
+                        <div class="loading-dot"></div>
+                        <div class="loading-dot"></div>
+                        <div class="loading-dot"></div>
+                    </div>
+                </div>
+        </div>
+        <br><br> -->
+        <div id="btn" class="btn">登录</div>
+    </form>
+    
+    
+    
+    </body>
+    <!-- 注意，验证码本身是不需要 jquery 库，此处使用 jquery 仅为了在 demo 中使用，减少代码量 -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- 引入 gt.js，既可以使用其中提供的 initGeetest 初始化函数。为防劫持，强烈建议将此文件放在客户服务器！！！-->
+    <script src="http://static.geetest.com/static/tools/gt.js"></script>
+    <script>
+    
+    
+        var handler = function (captchaObj) {
+            // captchaObj.appendTo('#captcha');
+            // captchaObj.onReady(function () {
+            //     $("#wait").hide();
+            // });
+            $('#btn').click(function () {
+                // var result = captchaObj.getValidate();
+                // if (!result) {
+                //     return alert('请完成验证');
+                // }
+                captchaObj.verify();
+            })
+            captchaObj.onSuccess(function () {
+                var result = captchaObj.getValidate();
+                $.ajax({
+                    // url: 'http://192.168.1.93:18081/geetest/validate',
+                    url: 'https://www.geetest.com/demo/gt/validate-slide',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        username: $('#username2').val(),
+                        password: $('#password2').val(),
+                        geetest_challenge: result.geetest_challenge,
+                        geetest_validate: result.geetest_validate,
+                        geetest_seccode: result.geetest_seccode
+                    },
+                    success: function (data) {
+                        if (data.status === 'success') {
+                            // alert('登录成功');
+                            location.href = 'GeeTest.html'
+                        } else if (data.status === 'fail') {
+                            alert('登录失败，请完成验证');
+                            captchaObj.reset();
+                        }
+                    }
+                });
+                
+            }).onClose(function () {
+                alert ('请完成验证');
+            })
+            window.gt = captchaObj;
+        };
+    
+    
+        $.ajax({
+            url: "https://www.geetest.com/demo/gt/register-slide?t=" + (new Date()).getTime(), // 加随机数防止缓存
+            // url: "http://192.168.1.93:18081/geetest/register",
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+    
+                $('#text').hide();
+                $('#wait').show();
+                // 调用 initGeetest 进行初始化
+                // 参数1：配置参数
+                // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它调用相应的接口
+                initGeetest({
+                    // 以下 4 个配置参数为必须，不能缺少
+                    gt: data.gt,
+                    challenge: data.challenge,
+                    offline: !data.success, // 表示用户后台检测极验服务器是否宕机
+                    new_captcha: data.new_captcha, // 用于宕机时表示是新验证码的宕机
+                    
+                    product: "bind", // popup参数一样,样式不同
+                    width: "300px",
+                    https: true
+    
+                    // 更多配置参数说明请参见：http://docs.geetest.com/install/client/web-front/
+                }, handler);
+            }
+        });
+    </script>
+    </html>
